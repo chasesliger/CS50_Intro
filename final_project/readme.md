@@ -10,3 +10,6 @@ visitor center's geographic location is used, since parks can be very large).
 Users can register by entering there name, password, and state. They can change the selected state via a button on the nav bar. They can also change their passord if needed. Ideas
 for future implementations include allowing users to save parks in a list of favorites, get weather for multiple parks at a time, and subscribe some sort of forecasting system or
 receive alerts when the weather will be particularly nice on a given day.
+
+Here is a video on YouTube of the app in use:
+https://www.youtube.com/watch?v=rTxvLHrNghY&t=9s
