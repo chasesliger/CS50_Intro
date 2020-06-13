@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your homepage
+{% endblock %}
+
+{% block main %}
+
+  <table class="table">
+    <thead>
+          <tr>
+              <th>City</th>
+              <th>Temperature</th>
+              <th>Feels Like</th>
+              <th>Description</th>
+          </tr>
+    </thead>
+    <tbody>
+          <tr>
+              <td>{{ data.city }}</td>
+              <td>{{ data.feels_like }}</td>
+              <td>{{ data.temp }}</td>
+              <td>{{ data.description }}
+                <div class="media-left">
+                  <figure class="image is-50x50">
+                      <img src="http://openweathermap.org/img/w/{{ data.icon }}.png" alt="Image">
+                  </figure>
+                </div>
+              </td>
+          </tr>
+    </tbody>
+
+    </table>
+
+{% endblock %}
