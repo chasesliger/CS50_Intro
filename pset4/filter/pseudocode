@@ -1,0 +1,12 @@
+void reflect(int height, int width, RGBTRIPLE image[height][width])
+    create copy of image
+    for row in image
+        for column in image
+            initialize sum
+            initialize count
+            for mini-row in image (int r = -1; r = 1; r++)
+                for mini-column in image (int c = -1; c = 1; c++)
+                    if (0 < r height) && (0 < c < width)
+                        sum = sum + copy[r][c]
+                        count++
+            image[row][column] = round (sum/count)

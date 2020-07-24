@@ -1,0 +1,10 @@
+Open memory card
+    Repeat until end of card:
+        Read 512 bytes into buffer
+        If start of jpeg
+            If first jpeg
+                ...
+            Else
+                ...
+        Else
+            If already found jpeg
