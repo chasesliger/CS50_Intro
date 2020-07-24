@@ -1,0 +1,105 @@
+    // make a while loop to see if the word is in the linked list based on the the hash generated
+    int size = strlen(word);
+    char word_lower[size];
+
+    //for loop to make the word lower case
+    for (int i = 0; i < size; i++)
+    {
+        if (isupper(word[i]))
+        {
+            word_lower[i] = tolower(word[i]);
+        }
+        else
+        {
+            word_lower[i] = word[i];
+        }
+    }
+
+    //printf("Lower cased word is: %s", word_lower);
+    int index = hash(word_lower);
+    node *temp = table[index];
+
+    while (temp != NULL)
+    {
+    	if (strcmp(word_lower, temp->word) == 0)
+    	{
+    	    //printf("Found: %s\n",word_lower);
+    	    return true;
+    	}
+    	temp = temp->next;
+    }
+
+    for(int i = 0; i < strlen(word_lower); i++)
+    {
+     word_lower[i] = 0;
+    }
+
+
+// Loads dictionary into memory, returning true if successful else false
+bool load(const char *dictionary)
+{
+    // First open the dictionary file, and make sure it isn't NULL
+    FILE *file = fopen(dictionary, "r");
+    if (file == NULL)
+    {
+        return false;
+    }
+
+    char *new_word = malloc(46 * (sizeof(char)));
+
+    while (fscanf(file, "%s", new_word) != EOF)
+    {
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+        strcpy(n->word, new_word);
+        unsigned int index = hash(new_word);
+        if (&table[index] == NULL)
+        {
+            table[index] = n;
+        }
+        else
+        {
+            n->next = table[index];
+            table[index] = n;
+        }
+        dict_size++;
+    }
+
+//     node *temp = table[0];
+
+//     code to see if it was loaded into at all
+//     while (temp != NULL)
+//     {
+// 		printf("word= %s\n", temp->word);
+// 		temp = temp->next;
+// 	}
+// 			printf("\n");
+
+
+    // int i = 0;
+    // 	for (i = 0; i < N; i++)
+    //     {
+    // 		node *temp = table[i];
+    // 		if (temp == NULL)
+    //         {
+    // 			printf("table[%i] has no elements\n", i);
+    // 			printf("\n\n\n");
+
+    // 		}
+    //         else
+    //         {
+    // 			printf("table[%i] has elements-: \n", i);
+    // 			while (temp != NULL)
+    //             {
+    // 				printf("word= %s\n", temp->word);
+    // 				temp = temp->next;
+    //             }
+    // 		}
+    // 	}
+    free(new_word);
+    fclose(file);
+    return true;
+}
