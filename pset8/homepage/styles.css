@@ -1,0 +1,33 @@
+p {
+   text-align: left;
+   font-weight: bold;
+}
+
+.links_list {
+    list-style-type: circle;
+    margin: auto;
+    width: 50%;
+}
+
+.resume_list {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.hacker-mode {
+  background-color: black;
+  color: green;
+}
